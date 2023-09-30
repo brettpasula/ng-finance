@@ -1,0 +1,13 @@
+<div class="credit-account-list">
+  <h3>Credit Accounts</h3>
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    style="height: 100%; width: 100%"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="creditAccountList"
+    [rowSelection]="'multiple'"
+    [animateRows]="true"
+    [domLayout]="'autoHeight'"
+  ></ag-grid-angular>
+</div>
