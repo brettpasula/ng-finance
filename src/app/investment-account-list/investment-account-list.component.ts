@@ -1,6 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
+import { Observable } from 'rxjs';
 import { InvestmentAccount } from 'src/interfaces/investment-account';
 
 @Component({

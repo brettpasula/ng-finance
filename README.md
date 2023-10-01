@@ -35,3 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Sass
 
 [Sass documentation](https://sass-lang.com/)
+
+## References
+
+[Mocking data in Angular](https://moduscreate.com/blog/how-to-mock-data-in-angular-applications/)
