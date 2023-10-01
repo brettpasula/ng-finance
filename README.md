@@ -36,6 +36,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Sass documentation](https://sass-lang.com/)
 
+## Angular Material
+
+[Angular Material Design System](https://material.angular.io/)
+
 ## References
 
 [Mocking data in Angular](https://moduscreate.com/blog/how-to-mock-data-in-angular-applications/)

@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, inject } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { CashAccount } from 'src/interfaces/cash-account';
@@ -6,7 +6,7 @@ import { CashAccount } from 'src/interfaces/cash-account';
 @Component({
   selector: 'cash-account-list',
   templateUrl: './cash-account-list.component.html',
-  styleUrls: ['./cash-account-list.component.scss']
+  styleUrls: ['./cash-account-list.component.scss'],
 })
 export class CashAccountListComponent {
   @Input()
@@ -15,7 +15,7 @@ export class CashAccountListComponent {
   public columnDefs: ColDef[] = [
     { field: 'id' },
     { field: 'name' },
-    { field: 'value' }
+    { field: 'value' },
   ];
 
   // DefaultColDef sets props common to all Columns

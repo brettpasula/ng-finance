@@ -1,13 +1,15 @@
-<div class="cash-account-list">
-  <h3>Cash Accounts</h3>
-  <ag-grid-angular
-    class="ag-theme-alpine"
-    style="height: 100%; width: 100%"
-    [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef"
-    [rowData]="cashAccountList"
-    [rowSelection]="'multiple'"
-    [animateRows]="true"
-    [domLayout]="'autoHeight'"
-  ></ag-grid-angular>
-</div>
+<mat-card>
+  <mat-card-header>Cash Accounts</mat-card-header>
+  <mat-card-content>
+    <ag-grid-angular
+      class="ag-theme-alpine"
+      style="height: 100%; width: 100%"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowData]="cashAccountList"
+      [rowSelection]="'multiple'"
+      [animateRows]="true"
+      [domLayout]="'autoHeight'"
+    ></ag-grid-angular>
+  </mat-card-content>
+</mat-card>
