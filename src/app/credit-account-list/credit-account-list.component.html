@@ -10,6 +10,7 @@
       [rowSelection]="'multiple'"
       [animateRows]="true"
       [domLayout]="'autoHeight'"
+      (gridReady)="onGridReady()"
     ></ag-grid-angular>
   </mat-card-content>
 </mat-card>

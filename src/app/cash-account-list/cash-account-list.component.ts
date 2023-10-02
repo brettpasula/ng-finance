@@ -10,6 +10,8 @@ import { AccountService } from 'src/services/account-service.service';
   styleUrls: ['./cash-account-list.component.scss'],
 })
 export class CashAccountListComponent implements OnInit {
+  // For accessing the Grid's API
+  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
   private _accountService: AccountService;
 
   public columnDefs: ColDef[] = [
@@ -26,9 +28,6 @@ export class CashAccountListComponent implements OnInit {
 
   public cashAccounts?: CashAccount[];
 
-  // For accessing the Grid's API
-  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
-
   constructor() {
     this._accountService = inject(AccountService);
   }
@@ -39,5 +38,9 @@ export class CashAccountListComponent implements OnInit {
       .subscribe((cashAccounts: CashAccount[]) => {
         this.cashAccounts = cashAccounts;
       });
+  }
+
+  onGridReady() {
+    this.agGrid.api.sizeColumnsToFit();
   }
 }

@@ -43,3 +43,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## References
 
 [Mocking data in Angular](https://moduscreate.com/blog/how-to-mock-data-in-angular-applications/)
+
+## JSON Server
+To run the server: `json-server --watch db.json`

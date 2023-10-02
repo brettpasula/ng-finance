@@ -41,4 +41,8 @@ export class InvestmentAccountListComponent implements OnInit {
         this.investmentAccounts = investmentAccounts;
       });
   }
+
+  onGridReady() {
+    this.agGrid.api.sizeColumnsToFit();
+  }
 }

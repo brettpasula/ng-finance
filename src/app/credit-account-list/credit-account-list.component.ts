@@ -18,14 +18,14 @@ export class CreditAccountListComponent {
     { field: 'creditLimit' },
     { field: 'creditAvailable' },
     { field: 'annualFee' },
-    { field: 'rewardsProgramDetails' }
+    { field: 'rewardsProgramDetails' },
   ];
 
   // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
-    resizable: true
+    resizable: true,
   };
 
   public creditAccounts?: CreditAccount[];
@@ -44,5 +44,9 @@ export class CreditAccountListComponent {
       .subscribe((creditAccounts: CreditAccount[]) => {
         this.creditAccounts = creditAccounts;
       });
+  }
+
+  onGridReady() {
+    this.agGrid.api.sizeColumnsToFit();
   }
 }

@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountService {
   private _httpClient: HttpClient;
-  private _baseUrl: string =  'http://localhost:8000/';
+  private _baseUrl: string =  'http://localhost:3000/';
 
   constructor() { 
     this._httpClient = inject(HttpClient);
