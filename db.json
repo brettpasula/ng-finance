@@ -1,0 +1,58 @@
+{
+  "cash_accounts": [
+    {
+      "id": 1,
+      "name": "Chequing",
+      "value": 12345.67
+    },
+    {
+      "id": 2,
+      "name": "Savings",
+      "value": 76543.21
+    }
+  ],
+    "credit_accounts": [
+    {
+      "id": 1,
+      "name": "All Access No-Fee Extraordinary Card",
+      "creditAvailable": 10582.24,
+      "creditLimit": 15000,
+      "annualFee": 0,
+      "rewardsProgramDetails": "0.00125% cash back on all purchases."
+    },
+    {
+      "id": 2,
+      "name": "Luxury Exclusive Airline Card",
+      "creditAvailable": 85345.98,
+      "creditLimit": 100000,
+      "annualFee": 250,
+      "rewardsProgramDetails": "500 points per dollar spend on Generic Airline (TM) flights. 0.5 points per dollar on all other purchases."
+    },
+    {
+      "id": 3,
+      "name": "Tremendous Cash Back Card",
+      "creditAvailable": 19824.65,
+      "creditLimit": 20000,
+      "annualFee": 0,
+      "rewardsProgramDetails": "5% cash back on all purchases."
+    }
+  ],
+  "investment_accounts": [
+    {
+      "id": 1,
+      "name": "Bank of Imaginary Land",
+      "value": 29543.25
+    },
+    {
+      "id": 2,
+      "name": "SuperBank(TM) Investments",
+      "value": 9456.87
+    },
+    {
+      "id": 3,
+      "name": "Exceptional Returns Bank",
+      "value": 1845.23
+    }
+  ]
+}
+

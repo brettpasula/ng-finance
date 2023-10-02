@@ -1,26 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CashAccount } from 'src/interfaces/cash-account';
 import { CreditAccount } from 'src/interfaces/credit-account';
 import { InvestmentAccount } from 'src/interfaces/investment-account';
-import * as mockCreditAccounts from './mock-data/mock-credit-accounts.json';
-import * as mockCashAccounts from './mock-data/mock-cash-accounts.json';
-import * as mockInvestmentAccounts from './mock-data/mock-investment-accounts.json';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
+  private _httpClient: HttpClient;
+  private _baseUrl: string =  'http://localhost:8000/';
+
+  constructor() { 
+    this._httpClient = inject(HttpClient);
+  }
 
   getAllCreditAccounts(): Observable<CreditAccount[]> {
-    return of(mockCreditAccounts);
+    return this._httpClient.get<CreditAccount[]>(this._baseUrl + 'credit_accounts')
   }
 
   getAllCashAccounts(): Observable<CashAccount[]> { 
-    return of(mockCashAccounts);
+    return this._httpClient.get<CashAccount[]>(this._baseUrl + 'cash_accounts')
   }
 
   getAllInvestmentAccounts(): Observable<InvestmentAccount[]> { 
-    return of(mockInvestmentAccounts);
+    return this._httpClient.get<InvestmentAccount[]>(this._baseUrl + 'investment_accounts')
   }
 }

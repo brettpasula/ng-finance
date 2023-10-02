@@ -12,6 +12,7 @@ import { CreateAccountFormComponent } from './create-account-form/create-account
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,5 +2,7 @@ export interface CreditAccount {
     id: number,
     name: string,
     creditAvailable: number,
-    creditLimit: number
+    creditLimit: number,
+    annualFee: number,
+    rewardsProgramDetails: string
 }

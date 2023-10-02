@@ -1,15 +1,15 @@
 <mat-card>
   <mat-card-header>Credit Accounts</mat-card-header>
   <mat-card-content>
-  <ag-grid-angular
-    class="ag-theme-alpine"
-    style="height: 100%; width: 100%"
-    [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef"
-    [rowData]="creditAccountList"
-    [rowSelection]="'multiple'"
-    [animateRows]="true"
-    [domLayout]="'autoHeight'"
-  ></ag-grid-angular>
-</mat-card-content>
+    <ag-grid-angular
+      class="ag-theme-alpine"
+      style="height: 100%; width: 100%"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowData]="creditAccounts"
+      [rowSelection]="'multiple'"
+      [animateRows]="true"
+      [domLayout]="'autoHeight'"
+    ></ag-grid-angular>
+  </mat-card-content>
 </mat-card>
