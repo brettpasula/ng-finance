@@ -1,6 +1,9 @@
-<nav>
-  <button mat-button [routerLink]="['/']">NgFinance</button>
+<mat-toolbar>
+  <button mat-button [routerLink]="['/']">
+    <strong class="home">NgFinance</strong>
+  </button>
+  <span class="spacer"></span>
   <button mat-raised-button [routerLink]="['/create-account']">
     Create account
   </button>
-</nav>
+</mat-toolbar>

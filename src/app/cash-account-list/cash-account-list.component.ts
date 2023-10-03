@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { AgChart, AgChartOptions } from 'ag-charts-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 import { CashAccount } from 'src/interfaces/cash-account';
@@ -37,10 +38,15 @@ export class CashAccountListComponent implements OnInit {
       .getAllCashAccounts()
       .subscribe((cashAccounts: CashAccount[]) => {
         this.cashAccounts = cashAccounts;
+        this.initializeChartOptions;
       });
   }
 
   onGridReady() {
     this.agGrid.api.sizeColumnsToFit();
+  }
+
+  private initializeChartOptions() {
+
   }
 }
