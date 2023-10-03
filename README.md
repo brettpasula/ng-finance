@@ -22,9 +22,9 @@ To run the server: `json-server --watch db.json`
 
 ## Running the app and JSON server
 Angular application: 
-    - use `npm run start`
-    - the development server will listen on http://localhost:4200/
+1. use `npm run start`
+2. the development server will listen on http://localhost:4200/
 
 JSON Server:
-    - use `npm run json-server`
-    - the JSON server will listen on http://localhost:3000/
+1. use `npm run json-server`
+2. the JSON server will listen on http://localhost:3000/
