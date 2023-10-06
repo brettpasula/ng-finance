@@ -17,9 +17,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Angular Material Design System](https://material.angular.io/)
 
-## JSON Server
-To run the server: `json-server --watch db.json`
-
 ## Running the app and JSON server
 Angular application: 
 1. use `npm run start`

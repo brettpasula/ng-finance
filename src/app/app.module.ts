@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListHeaderComponent } from './list-header/list-header.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CashAccountListComponent,
     InvestmentAccountListComponent,
     CreateAccountFormComponent,
+    ListHeaderComponent,
   ],
   imports: [
     BrowserModule,

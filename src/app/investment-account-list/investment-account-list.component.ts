@@ -22,6 +22,7 @@ export class InvestmentAccountListComponent implements OnInit {
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
+    resizable: true
   };
 
   public investmentAccounts?: InvestmentAccount[];

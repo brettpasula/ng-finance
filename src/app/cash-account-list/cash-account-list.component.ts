@@ -25,6 +25,7 @@ export class CashAccountListComponent implements OnInit {
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
+    resizable: true,
   };
 
   public cashAccounts?: CashAccount[];
@@ -38,15 +39,10 @@ export class CashAccountListComponent implements OnInit {
       .getAllCashAccounts()
       .subscribe((cashAccounts: CashAccount[]) => {
         this.cashAccounts = cashAccounts;
-        this.initializeChartOptions;
       });
   }
 
   onGridReady() {
     this.agGrid.api.sizeColumnsToFit();
-  }
-
-  private initializeChartOptions() {
-
   }
 }

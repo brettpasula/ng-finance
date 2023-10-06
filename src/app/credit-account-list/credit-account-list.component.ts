@@ -38,7 +38,6 @@ export class CreditAccountListComponent {
   }
 
   ngOnInit(): void {
-    // investment
     this._accountService
       .getAllCreditAccounts()
       .subscribe((creditAccounts: CreditAccount[]) => {

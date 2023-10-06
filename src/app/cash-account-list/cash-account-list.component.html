@@ -1,11 +1,8 @@
 <mat-card>
-  <mat-card-header>
-    <h2>Cash Accounts</h2>
-  </mat-card-header>
+  <list-header [headerText]="'Cash Accounts'"></list-header>
   <mat-card-content>
     <ag-grid-angular
       class="ag-theme-alpine"
-      style="height: 100%; width: 100%"
       [columnDefs]="columnDefs"
       [defaultColDef]="defaultColDef"
       [rowData]="cashAccounts"
