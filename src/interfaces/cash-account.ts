@@ -1,5 +1,5 @@
 export interface CashAccount {
-    id: number,
+    id?: number,
     name: string,
     value: number
 }

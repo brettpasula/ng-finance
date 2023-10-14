@@ -16,16 +16,15 @@ export class CashAccountListComponent implements OnInit {
   private _accountService: AccountService;
 
   public columnDefs: ColDef[] = [
-    { field: 'id' },
     { field: 'name' },
-    { field: 'value' },
+    { field: 'value', valueParser: params => Number(params.newValue) },
   ];
 
   // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
-    resizable: true,
+    resizable: true
   };
 
   public cashAccounts?: CashAccount[];

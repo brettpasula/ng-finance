@@ -27,4 +27,12 @@ export class AccountService {
   getAllInvestmentAccounts(): Observable<InvestmentAccount[]> { 
     return this._httpClient.get<InvestmentAccount[]>(this._baseUrl + 'investment_accounts')
   }
+
+  createCashAccount(cashAccount: CashAccount): Observable<CashAccount> { 
+    return this._httpClient.post<CashAccount>(this._baseUrl + 'cash_accounts', cashAccount);
+  }
+
+  deleteCashAccount(cashAccountName: string) { 
+    
+  }
 }

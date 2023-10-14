@@ -8,7 +8,7 @@ import { CreditAccountListComponent } from './credit-account-list/credit-account
 import { AgGridModule } from 'ag-grid-angular';
 import { CashAccountListComponent } from './cash-account-list/cash-account-list.component';
 import { InvestmentAccountListComponent } from './investment-account-list/investment-account-list.component';
-import { CreateAccountFormComponent } from './create-account-form/create-account-form.component';
+import { CreateCashComponent } from './create-cash/create-cash.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +19,8 @@ import { AgChartsAngularModule } from 'ag-charts-angular';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListHeaderComponent } from './list-header/list-header.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { ListHeaderComponent } from './list-header/list-header.component';
     CreditAccountListComponent,
     CashAccountListComponent,
     InvestmentAccountListComponent,
-    CreateAccountFormComponent,
+    CreateCashComponent,
     ListHeaderComponent,
   ],
   imports: [
@@ -44,6 +46,8 @@ import { ListHeaderComponent } from './list-header/list-header.component';
     MatInputModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
