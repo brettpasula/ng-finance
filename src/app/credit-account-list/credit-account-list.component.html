@@ -1,16 +1,19 @@
 <mat-card>
   <list-header [headerText]="'Credit Accounts'"></list-header>
   <mat-card-content>
+    <button mat-raised-button [routerLink]="['/create-credit']">Create</button>
+    <button mat-raised-button color="warn" [disabled]="!rowSelected()" (click)="onClickDelete()">Delete</button>
     <ag-grid-angular
       class="ag-theme-alpine"
       style="height: 100%; width: 100%"
       [columnDefs]="columnDefs"
       [defaultColDef]="defaultColDef"
       [rowData]="creditAccounts"
-      [rowSelection]="'multiple'"
+      [rowSelection]="'single'"
       [animateRows]="true"
       [domLayout]="'autoHeight'"
       (gridReady)="onGridReady()"
+      (selectionChanged)="onSelectionChanged($event)"
     ></ag-grid-angular>
   </mat-card-content>
 </mat-card>

@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListHeaderComponent } from './list-header/list-header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CreateCreditComponent } from './create-credit/create-credit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     InvestmentAccountListComponent,
     CreateCashComponent,
     ListHeaderComponent,
+    CreateCreditComponent,
   ],
   imports: [
     BrowserModule,

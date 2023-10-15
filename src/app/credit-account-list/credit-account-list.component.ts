@@ -1,6 +1,7 @@
 import { Component, ViewChild, inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
+import { ColDef, IRowNode, SelectionChangedEvent, ValueParserParams } from 'ag-grid-community';
 import { CreditAccount } from 'src/interfaces/credit-account';
 import { AccountService } from 'src/services/account-service.service';
 
@@ -10,18 +11,22 @@ import { AccountService } from 'src/services/account-service.service';
   styleUrls: ['./credit-account-list.component.scss'],
 })
 export class CreditAccountListComponent {
+  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
   private _accountService: AccountService;
+  private _snackBar: MatSnackBar;
 
   public columnDefs: ColDef[] = [
-    { field: 'id' },
-    { field: 'name' },
-    { field: 'creditLimit' },
-    { field: 'creditAvailable' },
-    { field: 'annualFee' },
-    { field: 'rewardsProgramDetails' },
+    { field: 'name', checkboxSelection: true },
+    { field: 'creditLimit', valueParser: this.numberValueParser },
+    { field: 'creditAvailable', valueParser: this.numberValueParser },
+    { field: 'annualFee', valueParser: this.numberValueParser },
+    { field: 'rewardsProgramDetails', wrapText: true, autoHeight: true },
   ];
 
-  // DefaultColDef sets props common to all Columns
+  numberValueParser(params: ValueParserParams) { 
+    return Number(params.newValue);
+  }
+
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
@@ -29,12 +34,11 @@ export class CreditAccountListComponent {
   };
 
   public creditAccounts?: CreditAccount[];
-
-  // For accessing the Grid's API
-  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
+  public selectedRow?: IRowNode;
 
   constructor() {
     this._accountService = inject(AccountService);
+    this._snackBar = inject(MatSnackBar);
   }
 
   ngOnInit(): void {
@@ -47,5 +51,27 @@ export class CreditAccountListComponent {
 
   onGridReady() {
     this.agGrid.api.sizeColumnsToFit();
+  }
+
+  onSelectionChanged(event: SelectionChangedEvent) {
+    this.selectedRow = event.api.getSelectedNodes().pop();
+  }
+
+  rowSelected(): boolean { 
+    return !(this.selectedRow == null);
+  }
+
+  onClickDelete() {
+    const id = this.selectedRow?.data.id; 
+    this._accountService.deleteCreditAccount(id).subscribe({
+      error: (e) => {
+        console.log(e);
+      },
+      complete: () => {
+        this.creditAccounts = this.creditAccounts?.filter((ca) => ca.id !== id);
+        this.selectedRow = undefined;
+        this._snackBar.open("Credit account deleted.", "Dismiss");
+      }
+    })
   }
 }

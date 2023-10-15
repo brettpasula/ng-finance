@@ -9,11 +9,6 @@
       "id": 2,
       "name": "Savings",
       "value": 76543.21
-    },
-    {
-      "name": "Test123",
-      "value": "123.56",
-      "id": 3
     }
   ],
   "credit_accounts": [

@@ -35,15 +35,15 @@ export class CreateCashComponent {
       name: this.formGroup.controls.name.value,
       value: this.formGroup.controls.value.value,
     };
-    this._accountService.createCashAccount(cashAccount).subscribe(
-      () => {
+    this._accountService.createCashAccount(cashAccount).subscribe({
+      complete: () => {
         this._router.navigate(['/cash-accounts']);
-        this._snackBar.open("Cash account created successfully.", "Dismiss");
+        this._snackBar.open('Cash account created successfully.', 'Dismiss');
       },
-      () => {
-        console.log("Something went wrong...");
+      error: () => {
+        console.log('Something went wrong...');
         console.log(cashAccount);
       },
-    );
+    });
   }
 }

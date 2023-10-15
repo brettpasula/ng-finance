@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-header>
+    <h1>Create a credit account</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <div [formGroup]="formGroup">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Credit limit</mat-label>
+        <input formControlName="creditLimit" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Credit available</mat-label>
+        <input formControlName="creditAvailable" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Annual fee</mat-label>
+        <input formControlName="annualFee" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Rewards program details</mat-label>
+        <input formControlName="rewardsProgramDetails" matInput />
+      </mat-form-field>
+      <br />
+      <button type="submit" (click)="onSubmit()" mat-raised-button>
+        Submit
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

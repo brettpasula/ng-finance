@@ -1,5 +1,5 @@
 export interface CreditAccount {
-    id: number,
+    id?: number,
     name: string,
     creditAvailable: number,
     creditLimit: number,

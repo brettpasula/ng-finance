@@ -32,7 +32,15 @@ export class AccountService {
     return this._httpClient.post<CashAccount>(this._baseUrl + 'cash_accounts', cashAccount);
   }
 
-  deleteCashAccount(cashAccountName: string) { 
-    
+  deleteCashAccount(cashAccountId: number) { 
+    return this._httpClient.delete(this._baseUrl + 'cash_accounts/' + cashAccountId);
+  }
+
+  createCreditAccount(creditAccount: CreditAccount): Observable<CreditAccount> {
+    return this._httpClient.post<CreditAccount>(this._baseUrl + 'credit_accounts', creditAccount);
+  }
+
+  deleteCreditAccount(creditAccountId: number) { 
+    return this._httpClient.delete(this._baseUrl + 'credit_accounts/' + creditAccountId);
   }
 }
