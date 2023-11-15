@@ -10,37 +10,58 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountService {
   private _httpClient: HttpClient;
-  private _baseUrl: string =  'http://localhost:3000/';
+  private _baseUrl: string = 'http://localhost:3000/';
 
-  constructor() { 
+  constructor() {
     this._httpClient = inject(HttpClient);
   }
 
   getAllCreditAccounts(): Observable<CreditAccount[]> {
-    return this._httpClient.get<CreditAccount[]>(this._baseUrl + 'credit_accounts')
+    return this._httpClient.get<CreditAccount[]>(
+      this._baseUrl + 'credit_accounts'
+    );
   }
 
-  getAllCashAccounts(): Observable<CashAccount[]> { 
-    return this._httpClient.get<CashAccount[]>(this._baseUrl + 'cash_accounts')
+  getAllCashAccounts(): Observable<CashAccount[]> {
+    return this._httpClient.get<CashAccount[]>(this._baseUrl + 'cash_accounts');
   }
 
-  getAllInvestmentAccounts(): Observable<InvestmentAccount[]> { 
-    return this._httpClient.get<InvestmentAccount[]>(this._baseUrl + 'investment_accounts')
+  getAllInvestmentAccounts(): Observable<InvestmentAccount[]> {
+    return this._httpClient.get<InvestmentAccount[]>(
+      this._baseUrl + 'investment_accounts'
+    );
   }
 
-  createCashAccount(cashAccount: CashAccount): Observable<CashAccount> { 
-    return this._httpClient.post<CashAccount>(this._baseUrl + 'cash_accounts', cashAccount);
+  createCashAccount(cashAccount: CashAccount): Observable<CashAccount> {
+    return this._httpClient.post<CashAccount>(
+      this._baseUrl + 'cash_accounts',
+      cashAccount
+    );
   }
 
-  deleteCashAccount(cashAccountId: number) { 
-    return this._httpClient.delete(this._baseUrl + 'cash_accounts/' + cashAccountId);
+  deleteCashAccount(cashAccountId: number) {
+    return this._httpClient.delete(
+      this._baseUrl + 'cash_accounts/' + cashAccountId
+    );
+  }
+
+  updateCashAccount(cashAccount: CashAccount): Observable<any> {
+    return this._httpClient.put<CashAccount>(
+      this._baseUrl + 'cash_accounts/' + cashAccount.id,
+      cashAccount
+    );
   }
 
   createCreditAccount(creditAccount: CreditAccount): Observable<CreditAccount> {
-    return this._httpClient.post<CreditAccount>(this._baseUrl + 'credit_accounts', creditAccount);
+    return this._httpClient.post<CreditAccount>(
+      this._baseUrl + 'credit_accounts',
+      creditAccount
+    );
   }
 
-  deleteCreditAccount(creditAccountId: number) { 
-    return this._httpClient.delete(this._baseUrl + 'credit_accounts/' + creditAccountId);
+  deleteCreditAccount(creditAccountId: number) {
+    return this._httpClient.delete(
+      this._baseUrl + 'credit_accounts/' + creditAccountId
+    );
   }
 }

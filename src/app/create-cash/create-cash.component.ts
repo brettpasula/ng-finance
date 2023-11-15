@@ -21,7 +21,7 @@ export class CreateCashComponent {
   private _snackBar: MatSnackBar;
   formGroup = new FormGroup({
     name: new FormControl('', Validators.required),
-    value: new FormControl(0.0, Validators.required),
+    value: new FormControl<number | null>(null, Validators.required),
   });
 
   constructor() {

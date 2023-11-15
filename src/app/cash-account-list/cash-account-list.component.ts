@@ -1,7 +1,12 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef, IRowNode, SelectionChangedEvent } from 'ag-grid-community';
+import {
+  CellValueChangedEvent,
+  ColDef,
+  IRowNode,
+  SelectionChangedEvent,
+} from 'ag-grid-community';
 import { CashAccount } from 'src/interfaces/cash-account';
 import { AccountService } from 'src/services/account-service.service';
 
@@ -24,6 +29,7 @@ export class CashAccountListComponent implements OnInit {
     sortable: true,
     filter: true,
     resizable: true,
+    editable: true,
   };
 
   public cashAccounts?: CashAccount[];
@@ -50,21 +56,31 @@ export class CashAccountListComponent implements OnInit {
     this.selectedRow = event.api.getSelectedNodes().pop();
   }
 
-  rowSelected(): boolean { 
+  rowSelected(): boolean {
     return !(this.selectedRow == null);
   }
 
   onClickDelete() {
-    const id = this.selectedRow?.data.id; 
+    const id = this.selectedRow?.data.id;
     this._accountService.deleteCashAccount(id).subscribe({
-      error: () => {
-        
-      },
+      error: () => {},
       complete: () => {
         this.cashAccounts = this.cashAccounts?.filter((ca) => ca.id !== id);
         this.selectedRow = undefined;
-        this._snackBar.open("Cash account deleted.", "Dismiss");
-      }
-    })
+        this._snackBar.open('Cash account deleted.', 'Dismiss');
+      },
+    });
+  }
+
+  onCellValueChanged($event: CellValueChangedEvent) {
+    this._accountService.updateCashAccount($event.data).subscribe({
+      error: () => {},
+      complete: () => {
+        this._snackBar.open(
+          `Cash account \"${$event.data.name}\" successfully updated.`,
+          'Dismiss'
+        );
+      },
+    });
   }
 }

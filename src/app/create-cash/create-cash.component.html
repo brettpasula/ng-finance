@@ -14,7 +14,12 @@
         <input formControlName="value" matInput />
       </mat-form-field>
       <br />
-      <button type="submit" (click)="onSubmit()" mat-raised-button>
+      <button
+        type="submit"
+        [disabled]="!formGroup.valid"
+        (click)="onSubmit()"
+        mat-raised-button
+      >
         Submit
       </button>
     </div>
