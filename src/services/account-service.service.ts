@@ -39,7 +39,7 @@ export class AccountService {
     );
   }
 
-  deleteCashAccount(cashAccountId: number) {
+  deleteCashAccount(cashAccountId: number): Observable<any> {
     return this._httpClient.delete(
       this._baseUrl + 'cash_accounts/' + cashAccountId
     );
@@ -59,9 +59,16 @@ export class AccountService {
     );
   }
 
-  deleteCreditAccount(creditAccountId: number) {
+  deleteCreditAccount(creditAccountId: number): Observable<any> {
     return this._httpClient.delete(
       this._baseUrl + 'credit_accounts/' + creditAccountId
     );
+  }
+
+  updateCreditAccount(creditAccount: CreditAccount): Observable<any> { 
+    return this._httpClient.put<CreditAccount>(
+      this._baseUrl + 'credit_accounts/' + creditAccount.id,
+      creditAccount
+    )
   }
 }

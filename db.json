@@ -18,7 +18,11 @@
       "creditAvailable": 10582.24,
       "creditLimit": 15000,
       "annualFee": 0,
-      "rewardsProgramDetails": "0.00125% cash back on all purchases."
+      "rewardsProgramDetails": "0.00125% cash back on all purchases.",
+      "lastStatementDate": "10/10/2023",
+      "lastStatementBalance": 500.45,
+      "lastPaymentDate": "15/10/2023",
+      "lastPaymentAmount": 500.45
     },
     {
       "id": 2,
@@ -26,6 +30,10 @@
       "creditAvailable": 85345.98,
       "creditLimit": 100000,
       "annualFee": 250,
+      "lastStatementDate": "10/10/2023",
+      "lastStatementBalance": 500.45,
+      "lastPaymentDate": "15/10/2023",
+      "lastPaymentAmount": 500.45,
       "rewardsProgramDetails": "500 points per dollar spend on Generic Airline (TM) flights. 0.5 points per dollar on all other purchases."
     },
     {
@@ -34,6 +42,10 @@
       "creditAvailable": 19824.65,
       "creditLimit": 20000,
       "annualFee": 0,
+      "lastStatementDate": "10/10/2023",
+      "lastStatementBalance": 500.45,
+      "lastPaymentDate": "15/10/2023",
+      "lastPaymentAmount": 500.45,
       "rewardsProgramDetails": "5% cash back on all purchases."
     }
   ],

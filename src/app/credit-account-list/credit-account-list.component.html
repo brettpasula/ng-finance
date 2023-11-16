@@ -14,6 +14,7 @@
       [domLayout]="'autoHeight'"
       (gridReady)="onGridReady()"
       (selectionChanged)="onSelectionChanged($event)"
+      (cellValueChanged)="onValueChanged($event)"
     ></ag-grid-angular>
   </mat-card-content>
 </mat-card>

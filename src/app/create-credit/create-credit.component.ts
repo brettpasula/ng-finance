@@ -20,9 +20,9 @@ export class CreateCreditComponent {
   private _snackBar: MatSnackBar;
   formGroup = new FormGroup({
     name: new FormControl('', Validators.required),
-    creditAvailable: new FormControl(0, Validators.required),
-    creditLimit: new FormControl(0, Validators.required),
-    annualFee: new FormControl(0, Validators.required),
+    creditAvailable: new FormControl<number | null>(null, Validators.required),
+    creditLimit: new FormControl<number | null>(null, Validators.required),
+    annualFee: new FormControl<number | null>(null, Validators.required),
     rewardsProgramDetails: new FormControl(''),
   });
 
