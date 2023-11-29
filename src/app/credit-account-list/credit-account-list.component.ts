@@ -6,11 +6,13 @@ import {
   ColDef,
   IRowNode,
   SelectionChangedEvent,
-  ValueFormatterParams,
-  ValueParserParams,
 } from 'ag-grid-community';
 import { CreditAccount } from 'src/interfaces/credit-account';
 import { AccountService } from 'src/services/account-service.service';
+import currencyValueFormatter from '../ag-grid/formatters/currency';
+import numberValueParser from '../ag-grid/parsers/number';
+import dateValueFormatter from '../ag-grid/formatters/date';
+import dateValueParser from '../ag-grid/parsers/date';
 
 @Component({
   selector: 'credit-account-list',
@@ -23,61 +25,58 @@ export class CreditAccountListComponent {
   private _snackBar: MatSnackBar;
 
   public columnDefs: ColDef[] = [
-    { field: 'name', checkboxSelection: true },
+    { field: 'name', wrapText: true },
     {
       field: 'creditLimit',
-      valueParser: this.numberValueParser,
-      valueFormatter: this.currencyValueFormatter,
+      hide: true,
+      valueParser: numberValueParser,
     },
     {
       field: 'creditAvailable',
-      valueParser: this.numberValueParser,
-      valueFormatter: this.currencyValueFormatter,
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
     },
     {
       field: 'balance',
       valueGetter: (params) =>
         (params.data.creditLimit - params.data.creditAvailable).toFixed(2),
-      valueFormatter: this.currencyValueFormatter,
+      valueFormatter: currencyValueFormatter,
+      sort: 'desc',
     },
     {
       field: 'annualFee',
-      valueParser: this.numberValueParser,
-      valueFormatter: this.currencyValueFormatter,
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
     },
-    { field: 'lastStatementDate' },
+    {
+      field: 'lastStatementDueDate',
+      valueParser: dateValueParser,
+      valueFormatter: dateValueFormatter,
+    },
     {
       field: 'lastStatementBalance',
-      valueParser: this.numberValueParser,
-      valueFormatter: this.currencyValueFormatter,
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
     },
-    { field: 'lastPaymentDate' },
+    {
+      field: 'lastPaymentDate',
+      valueParser: dateValueParser,
+      valueFormatter: dateValueFormatter,
+    },
     {
       field: 'lastPaymentAmount',
-      valueParser: this.numberValueParser,
-      valueFormatter: this.currencyValueFormatter,
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
     },
     { field: 'rewardsProgramDetails', wrapText: true, autoHeight: true },
   ];
-
-  numberValueParser(params: ValueParserParams) {
-    return Number(params.newValue);
-  }
-
-  currencyValueFormatter(params: ValueFormatterParams) {
-    if (params.value == null) return '';
-    const canadianCurrencyFormatter = new Intl.NumberFormat('en-CA', {
-      style: 'currency',
-      currency: 'CAD',
-    });
-    return canadianCurrencyFormatter.format(params.value);
-  }
 
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
     resizable: true,
     editable: true,
+    wrapHeaderText: true,
   };
 
   public creditAccounts?: CreditAccount[];
@@ -97,7 +96,7 @@ export class CreditAccountListComponent {
   }
 
   onGridReady() {
-    //this.agGrid.api.sizeColumnsToFit();
+    this.agGrid.columnApi.autoSizeAllColumns();
   }
 
   onSelectionChanged(event: SelectionChangedEvent) {
@@ -117,7 +116,9 @@ export class CreditAccountListComponent {
       complete: () => {
         this.creditAccounts = this.creditAccounts?.filter((ca) => ca.id !== id);
         this.selectedRow = undefined;
-        this._snackBar.open('Credit account deleted.', 'Dismiss');
+        this._snackBar.open('Credit account deleted.', 'Dismiss', {
+          duration: 5000,
+        });
       },
     });
   }
@@ -130,7 +131,8 @@ export class CreditAccountListComponent {
       complete: () => {
         this._snackBar.open(
           `Credit account \"${$event.data.name}\" updated successfully.`,
-          'Dismiss'
+          'Dismiss',
+          { duration: 5000 }
         );
       },
     });

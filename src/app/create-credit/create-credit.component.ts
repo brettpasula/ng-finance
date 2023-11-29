@@ -1,9 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CreditAccount } from 'src/interfaces/credit-account';
@@ -38,17 +34,20 @@ export class CreateCreditComponent {
       creditAvailable: this.formGroup.controls.creditAvailable.value,
       creditLimit: this.formGroup.controls.creditLimit.value,
       annualFee: this.formGroup.controls.annualFee.value,
-      rewardsProgramDetails: this.formGroup.controls.rewardsProgramDetails.value,
+      rewardsProgramDetails:
+        this.formGroup.controls.rewardsProgramDetails.value,
     };
     this._accountService.createCreditAccount(creditAccount).subscribe({
       complete: () => {
         this._router.navigate(['/credit-accounts']);
-        this._snackBar.open("Credit account created successfully.", "Dismiss");
+        this._snackBar.open('Credit account created successfully.', 'Dismiss', {
+          duration: 5000,
+        });
       },
       error: () => {
-        console.log("Something went wrong...");
+        console.log('Something went wrong...');
         console.log(creditAccount);
       },
-  });
+    });
   }
 }

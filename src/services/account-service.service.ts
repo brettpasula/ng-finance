@@ -4,13 +4,14 @@ import { CashAccount } from 'src/interfaces/cash-account';
 import { CreditAccount } from 'src/interfaces/credit-account';
 import { InvestmentAccount } from 'src/interfaces/investment-account';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
   private _httpClient: HttpClient;
-  private _baseUrl: string = 'http://localhost:3000/';
+  private _baseUrl: string = environment.apiUrl;
 
   constructor() {
     this._httpClient = inject(HttpClient);

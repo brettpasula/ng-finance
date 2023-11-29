@@ -9,6 +9,8 @@ import {
 } from 'ag-grid-community';
 import { CashAccount } from 'src/interfaces/cash-account';
 import { AccountService } from 'src/services/account-service.service';
+import currencyValueFormatter from '../ag-grid/formatters/currency';
+import numberValueParser from '../ag-grid/parsers/number';
 
 @Component({
   selector: 'cash-account-list',
@@ -21,8 +23,12 @@ export class CashAccountListComponent implements OnInit {
   private _snackBar: MatSnackBar;
 
   public columnDefs: ColDef[] = [
-    { field: 'name', checkboxSelection: true },
-    { field: 'value', valueParser: (params) => Number(params.newValue) },
+    { field: 'name' },
+    {
+      field: 'value',
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
+    },
   ];
 
   public defaultColDef: ColDef = {
@@ -49,7 +55,7 @@ export class CashAccountListComponent implements OnInit {
   }
 
   onGridReady() {
-    this.agGrid.api.sizeColumnsToFit();
+    this.agGrid.columnApi.autoSizeAllColumns();
   }
 
   onSelectionChanged(event: SelectionChangedEvent) {
