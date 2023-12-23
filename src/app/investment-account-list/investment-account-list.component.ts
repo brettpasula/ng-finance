@@ -13,9 +13,7 @@ export class InvestmentAccountListComponent implements OnInit {
   private _accountService: AccountService;
 
   public columnDefs: ColDef[] = [
-    { field: 'id' },
     { field: 'name' },
-    { field: 'value' },
   ];
 
   // DefaultColDef sets props common to all Columns

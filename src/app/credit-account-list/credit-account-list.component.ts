@@ -25,50 +25,51 @@ export class CreditAccountListComponent {
   private _snackBar: MatSnackBar;
 
   public columnDefs: ColDef[] = [
-    { field: 'name', wrapText: true },
+    { field: 'NAME' },
     {
-      field: 'creditLimit',
+      field: 'CREDIT_LIMIT',
       hide: true,
       valueParser: numberValueParser,
     },
     {
-      field: 'creditAvailable',
+      field: 'CREDIT_AVAILABLE',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'balance',
-      valueGetter: (params) =>
-        (params.data.creditLimit - params.data.creditAvailable).toFixed(2),
+      field: 'BALANCE',
+      valueGetter: (params) => {
+        return (params.data.CREDIT_LIMIT - params.data.CREDIT_AVAILABLE).toFixed(2)
+      },
       valueFormatter: currencyValueFormatter,
       sort: 'desc',
     },
     {
-      field: 'annualFee',
+      field: 'ANNUAL_FEE',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'lastStatementDueDate',
+      field: 'STATEMENT_DUE_DATE',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'lastStatementBalance',
+      field: 'STATEMENT_BALANCE',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'lastPaymentDate',
+      field: 'LAST_PAYMENT_DATE',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'lastPaymentAmount',
+      field: 'LAST_PAYMENT_AMOUNT',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
-    { field: 'rewardsProgramDetails', wrapText: true, autoHeight: true },
+    { field: 'REWARDS_PROGRAM_DETAILS', wrapText: true, autoHeight: true },
   ];
 
   public defaultColDef: ColDef = {
@@ -90,13 +91,13 @@ export class CreditAccountListComponent {
   ngOnInit(): void {
     this._accountService
       .getAllCreditAccounts()
-      .subscribe((creditAccounts: CreditAccount[]) => {
-        this.creditAccounts = creditAccounts;
+      .subscribe((creditAccounts: string) => {
+        this.creditAccounts = JSON.parse(creditAccounts);
       });
   }
 
   onGridReady() {
-    this.agGrid.columnApi.autoSizeAllColumns();
+    //this.agGrid.columnApi.autoSizeAllColumns();
   }
 
   onSelectionChanged(event: SelectionChangedEvent) {

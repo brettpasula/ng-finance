@@ -22,6 +22,7 @@ import { ListHeaderComponent } from './list-header/list-header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateCreditComponent } from './create-credit/create-credit.component';
+import { CreateInvestmentComponent } from './create-investment/create-investment.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CreateCreditComponent } from './create-credit/create-credit.component';
     CreateCashComponent,
     ListHeaderComponent,
     CreateCreditComponent,
+    CreateInvestmentComponent,
   ],
   imports: [
     BrowserModule,

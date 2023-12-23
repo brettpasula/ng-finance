@@ -1,8 +1,7 @@
 # NgFinance
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
-
 ## Angular
+
 [Angular documentation](https://angular.io/)
 
 ## AG Grid 
@@ -17,11 +16,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Angular Material Design System](https://material.angular.io/)
 
-## Running the app and JSON server
-Angular application: 
-1. use `npm run start`
+## Running the app
+
+1. use `ng serve` or `npm start`
 2. the development server will listen on http://localhost:4200/
 
-JSON Server:
-1. use `npm run json-server`
-2. the JSON server will listen on http://localhost:3000/
+## API server
+
+[Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server)

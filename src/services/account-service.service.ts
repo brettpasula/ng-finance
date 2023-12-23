@@ -17,9 +17,9 @@ export class AccountService {
     this._httpClient = inject(HttpClient);
   }
 
-  getAllCreditAccounts(): Observable<CreditAccount[]> {
-    return this._httpClient.get<CreditAccount[]>(
-      this._baseUrl + 'credit_accounts'
+  getAllCreditAccounts(): Observable<string> {
+    return this._httpClient.get<string>(
+      this._baseUrl + 'credit'
     );
   }
 

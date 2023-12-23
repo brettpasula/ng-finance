@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import {  CreateCashComponent } from './create-cash/create-cash.component';
+import { CreateCashComponent } from './create-cash/create-cash.component';
 import { CashAccountListComponent } from './cash-account-list/cash-account-list.component';
 import { CreditAccountListComponent } from './credit-account-list/credit-account-list.component';
 import { InvestmentAccountListComponent } from './investment-account-list/investment-account-list.component';
 import { CreateCreditComponent } from './create-credit/create-credit.component';
+import { CreateInvestmentComponent } from './create-investment/create-investment.component';
 
 // descending in specificity
 const routes: Routes = [
@@ -22,12 +23,16 @@ const routes: Routes = [
     component: CashAccountListComponent
   },
   {
+    path: 'create-credit',
+    component: CreateCreditComponent
+  },
+  {
     path: 'create-cash',
     component: CreateCashComponent
   },
   {
-    path: 'create-credit',
-    component: CreateCreditComponent
+    path: 'create-investment',
+    component: CreateInvestmentComponent
   },
   {
     path: '',
@@ -39,4 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],//, { enableTracing: true })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
