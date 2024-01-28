@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CreateCreditComponent } from './create-credit/create-credit.component';
 import { CreateInvestmentComponent } from './create-investment/create-investment.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { DialogErrorHandler } from './error-handler';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { CreateInvestmentComponent } from './create-investment/create-investment
     ListHeaderComponent,
     CreateCreditComponent,
     CreateInvestmentComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +56,10 @@ import { CreateInvestmentComponent } from './create-investment/create-investment
     BrowserAnimationsModule,
     MatSidenavModule,
     MatSnackBarModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [{ provide: ErrorHandler, useClass: DialogErrorHandler }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }
