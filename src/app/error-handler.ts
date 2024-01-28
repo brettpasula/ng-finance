@@ -1,6 +1,7 @@
 import { ErrorHandler, inject } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { ErrorDialogComponent } from "./error-dialog/error-dialog.component";
+import { HttpErrorResponse } from "@angular/common/http";
 
 export class DialogErrorHandler implements ErrorHandler {
     dialog: MatDialog;
@@ -8,7 +9,9 @@ export class DialogErrorHandler implements ErrorHandler {
     constructor() {
         this.dialog = inject(MatDialog);
     }
-    handleError(error: any) {
-        this.dialog.open(ErrorDialogComponent);
+    handleError(error: HttpErrorResponse) {
+        this.dialog.open(ErrorDialogComponent, { 
+            data: { error: error.message }
+        });
     }
 }

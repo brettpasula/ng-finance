@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, Input, inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'error-dialog',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./error-dialog.component.scss']
 })
 export class ErrorDialogComponent {
+  public error: string;
 
+  constructor() { 
+    let matDialogData = inject(MAT_DIALOG_DATA);
+    this.error = matDialogData.error;
+  }
 }
