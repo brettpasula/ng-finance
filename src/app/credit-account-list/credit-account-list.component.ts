@@ -25,51 +25,64 @@ export class CreditAccountListComponent {
   private _snackBar: MatSnackBar;
 
   public columnDefs: ColDef[] = [
-    { field: 'NAME' },
     {
-      field: 'CREDIT_LIMIT',
-      hide: true,
-      valueParser: numberValueParser,
+      field: 'Name',
+      headerName: 'Name'
     },
     {
-      field: 'CREDIT_AVAILABLE',
-      valueParser: numberValueParser,
-      valueFormatter: currencyValueFormatter,
-    },
-    {
-      field: 'BALANCE',
-      valueGetter: (params) => {
-        return (params.data.CREDIT_LIMIT - params.data.CREDIT_AVAILABLE).toFixed(2)
-      },
-      valueFormatter: currencyValueFormatter,
-      sort: 'desc',
-    },
-    {
-      field: 'ANNUAL_FEE',
+      field: 'CreditLimit',
+      headerName: 'Credit limit',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'STATEMENT_DUE_DATE',
+      field: 'CreditAvailable',
+      headerName: 'Credit available',
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
+    },
+    {
+      field: 'Balance',
+      headerName: 'Balance',
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
+    },
+    {
+      field: 'AnnualFee',
+      headerName: 'Annual fee',
+      valueParser: numberValueParser,
+      valueFormatter: currencyValueFormatter,
+    },
+    {
+      field: 'StatementDueDate',
+      headerName: 'Statement due date',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'STATEMENT_BALANCE',
+      field: 'StatementBalance',
+      headerName: 'Statement balance',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'LAST_PAYMENT_DATE',
+      field: 'LastPaymentDate',
+      headerName: 'Last payment date',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'LAST_PAYMENT_AMOUNT',
+      field: 'LastPaymentDate',
+      headerName: 'Last payment amount',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
-    { field: 'REWARDS_PROGRAM_DETAILS', wrapText: true, autoHeight: true },
+    {
+      field: 'RewardsProgramDetails',
+      headerName: 'Rewards program details',
+      wrapText: true,
+      autoHeight: true
+    },
   ];
 
   public defaultColDef: ColDef = {
@@ -91,8 +104,9 @@ export class CreditAccountListComponent {
   ngOnInit(): void {
     this._accountService
       .getAllCreditAccounts()
-      .subscribe((creditAccounts: string) => {
-        this.creditAccounts = JSON.parse(creditAccounts);
+      .subscribe((creditAccounts: CreditAccount[]) => {
+        this.creditAccounts = creditAccounts;
+        console.log(this.creditAccounts);
       });
   }
 
