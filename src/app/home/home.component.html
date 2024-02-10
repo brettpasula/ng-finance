@@ -1,4 +1,15 @@
 <div class="home">
-    <p><i>System data last updated:</i> {{ lastUpdatedDate }}</p>
-    <button mat-raised-button (click)="onClick()">Mark system as updated</button>
+  <mat-tab-group>
+    <mat-tab label="Cash">
+      <cash-account-list></cash-account-list>
+    </mat-tab>
+    <mat-tab label="Credit">
+      <credit-account-list></credit-account-list>
+    </mat-tab>
+    <mat-tab label="Investment">
+      <investment-account-list></investment-account-list>
+    </mat-tab>
+  </mat-tab-group>
+  <p><i>System data last updated:</i> {{ lastUpdatedDate }}</p>
+  <button mat-raised-button (click)="onClick()">Mark system as updated</button>
 </div>

@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
-  RequiredValidator,
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -37,8 +36,8 @@ export class CreateCashComponent {
     };
     this._accountService.createCashAccount(cashAccount).subscribe({
       complete: () => {
-        this._router.navigate(['/cash-accounts']);
-        this._snackBar.open('Cash account created successfully.', 'Dismiss');
+        this._router.navigate(['/']);
+        this._snackBar.open('Cash account created successfully', 'Dismiss');
       },
       error: () => {
         console.log('Something went wrong...');

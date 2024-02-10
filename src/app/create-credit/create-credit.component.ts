@@ -39,8 +39,8 @@ export class CreateCreditComponent {
     };
     this._accountService.createCreditAccount(creditAccount).subscribe({
       complete: () => {
-        this._router.navigate(['/credit-accounts']);
-        this._snackBar.open('Credit account created successfully.', 'Dismiss', {
+        this._router.navigate(['/']);
+        this._snackBar.open('Credit account created successfully', 'Dismiss', {
           duration: 5000,
         });
       },

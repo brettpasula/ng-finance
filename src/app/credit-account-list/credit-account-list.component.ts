@@ -10,9 +10,9 @@ import {
 import { CreditAccount } from 'src/interfaces/credit-account';
 import { AccountService } from 'src/services/account-service.service';
 import currencyValueFormatter from '../ag-grid/formatters/currency';
-import numberValueParser from '../ag-grid/parsers/number';
 import dateValueFormatter from '../ag-grid/formatters/date';
 import dateValueParser from '../ag-grid/parsers/date';
+import numberValueParser from '../ag-grid/parsers/number';
 
 @Component({
   selector: 'credit-account-list',

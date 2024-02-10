@@ -9,7 +9,7 @@ import { AdminService } from 'src/services/admin-service.service';
 export class HomeComponent {
   private _adminService: AdminService;
 
-  public lastUpdatedDate!: Date;
+  public lastUpdatedDate!: String;
 
   constructor() {
     this._adminService = inject(AdminService);
@@ -17,7 +17,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this._adminService.getAdmin().subscribe((admin) => {
-      this.lastUpdatedDate = new Date(admin.lastUpdatedDate);
+      this.lastUpdatedDate = new Date(admin.lastUpdatedDate).toDateString();
     });
   }
 
@@ -28,7 +28,7 @@ export class HomeComponent {
         console.log(admin);
       },
       next: (admin) => { 
-        this.lastUpdatedDate = new Date(admin.lastUpdatedDate);
+        this.lastUpdatedDate = new Date(admin.lastUpdatedDate).toDateString();
       }
     })
   }
