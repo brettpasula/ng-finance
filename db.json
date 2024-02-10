@@ -1,0 +1,34 @@
+{
+  "admin": {
+    "lastUpdatedDate": "2024-02-10T17:22:01.271Z"
+  },
+  "cash": [
+    {
+      "id": 1,
+      "name": "Chequing",
+      "value": 12345.67
+    }
+  ],
+  "credit": [
+    {
+      "id": 1,
+      "name": "All Access No-Fee Extraordinary Card",
+      "creditAvailable": 10582.24,
+      "creditLimit": 15000,
+      "balance": 4417.76,
+      "annualFee": 0,
+      "rewardsProgramDetails": "0.00125% cash back on all purchases.",
+      "statementDueDate": "10/10/2023",
+      "statementBalance": 500.45,
+      "lastPaymentDate": "10/15/2023",
+      "lastPaymentAmount": 500.45
+    }
+  ],
+  "investment": [
+    {
+      "id": 1,
+      "name": "Bank of Imaginary Land",
+      "value": 29543.25
+    }
+  ]
+}

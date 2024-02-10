@@ -26,59 +26,59 @@ export class CreditAccountListComponent {
 
   public columnDefs: ColDef[] = [
     {
-      field: 'Name',
+      field: 'name',
       headerName: 'Name'
     },
     {
-      field: 'CreditLimit',
+      field: 'creditLimit',
       headerName: 'Credit limit',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'CreditAvailable',
+      field: 'creditAvailable',
       headerName: 'Credit available',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'Balance',
+      field: 'balance',
       headerName: 'Balance',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'AnnualFee',
+      field: 'annualFee',
       headerName: 'Annual fee',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'StatementDueDate',
+      field: 'statementDueDate',
       headerName: 'Statement due date',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'StatementBalance',
+      field: 'statementBalance',
       headerName: 'Statement balance',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'LastPaymentDate',
+      field: 'lastPaymentDate',
       headerName: 'Last payment date',
       valueParser: dateValueParser,
       valueFormatter: dateValueFormatter,
     },
     {
-      field: 'LastPaymentDate',
+      field: 'lastPaymentAmount',
       headerName: 'Last payment amount',
       valueParser: numberValueParser,
       valueFormatter: currencyValueFormatter,
     },
     {
-      field: 'RewardsProgramDetails',
+      field: 'rewardsProgramDetails',
       headerName: 'Rewards program details',
       wrapText: true,
       autoHeight: true

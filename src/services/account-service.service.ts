@@ -18,9 +18,7 @@ export class AccountService {
   }
 
   getAllCreditAccounts(): Observable<CreditAccount[]> {
-    return this._httpClient.get<CreditAccount[]>(
-      this._baseUrl + 'Credit'
-    );
+    return this._httpClient.get<CreditAccount[]>(this._baseUrl + 'credit');
   }
 
   getAllCashAccounts(): Observable<CashAccount[]> {
@@ -41,9 +39,7 @@ export class AccountService {
   }
 
   deleteCashAccount(cashAccountId: number): Observable<any> {
-    return this._httpClient.delete(
-      this._baseUrl + 'cash/' + cashAccountId
-    );
+    return this._httpClient.delete(this._baseUrl + 'cash/' + cashAccountId);
   }
 
   updateCashAccount(cashAccount: CashAccount): Observable<any> {
@@ -61,15 +57,13 @@ export class AccountService {
   }
 
   deleteCreditAccount(creditAccountId: number): Observable<any> {
-    return this._httpClient.delete(
-      this._baseUrl + 'credit/' + creditAccountId
-    );
+    return this._httpClient.delete(this._baseUrl + 'credit/' + creditAccountId);
   }
 
   updateCreditAccount(creditAccount: CreditAccount): Observable<any> {
     return this._httpClient.put<CreditAccount>(
       this._baseUrl + 'credit/' + creditAccount.id,
       creditAccount
-    )
+    );
   }
 }
