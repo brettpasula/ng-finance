@@ -7,6 +7,8 @@
 [Sass documentation](https://sass-lang.com/)\
 [Angular Material Design System](https://material.angular.io/)
 [Proxying to a backend server](https://angular.io/guide/build#proxying-to-a-backend-server)
+[ChatGPT (test data generation)](https://chat.openai.com/)
+
 
 ## Running the app
 
